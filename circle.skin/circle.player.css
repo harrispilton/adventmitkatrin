@@ -1,0 +1,242 @@
+/*
+ * Project: CirclePlayer
+ * http://www.jplayer.org
+ *
+ * Copyright (c) 2012 Happyworm Ltd
+ *
+ * Author: Silvia Benvenuti
+ * Edited by: Mark J Panaghiston
+ * Date: 2nd October 2012
+ * Artwork inspired by: http://forrst.com/posts/Untitled-CJz
+ */
+
+
+ body {
+ 	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	padding: 0;
+	margin: 0;
+	color: #000;
+ }
+ 
+ h1 {
+	 color: #000;
+ }
+ 
+
+.cp-container {
+	position:relative;
+	width:104px; /* 114 - (2 * 48) */
+	height:104px;
+	background:url("bgr1.png") 0 0 no-repeat;
+	padding:4px;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-transform: scale(0.5);
+}
+
+
+.cp-container :focus {
+	border:none;
+	outline:0;
+}
+
+.cp-buffer-1,
+.cp-buffer-2,
+.cp-progress-1,
+.cp-progress-2 {
+	position:absolute;
+	top:0;
+	left:0;
+	width:104px;
+	height:104px;
+	clip:rect(0px,52px,104px,0px);
+
+	-moz-border-radius:52px;
+	-webkit-border-radius:52px;
+	border-radius:52px;
+}
+
+.cp-buffer-1,
+.cp-buffer-2 {
+	background:url("buffer.png") 0 0 no-repeat;
+}
+
+
+/* FALLBACK for .progress
+ * (24 steps starting from 1hr filled progress, Decrease second value by 104px for next step)
+ * (It needs the container selector to work. Or use div)
+ */
+
+.cp-container .cp-fallback {
+	background:url("progress_sprite.jpg") no-repeat;
+	background-position:0 104px; 
+}
+
+.cp-progress-1,
+.cp-progress-2 {
+	background:url("progress.png") 0 0 no-repeat;
+}
+
+.cp-buffer-holder,
+.cp-progress-holder,
+.cp-circle-control {
+	position:absolute;
+	width:104px;
+	height:104px;
+} 
+
+.cp-circle-control {
+	cursor:pointer;
+}
+
+.cp-buffer-holder,
+.cp-progress-holder {
+	clip:rect(0px,104px,104px,52px);
+	display:none;
+}
+
+
+/* This is needed when progress is greater than 50% or for fallback */
+
+.cp-buffer-holder.cp-gt50,
+.cp-progress-holder.cp-gt50,
+.cp-progress-1.cp-fallback{
+	clip:rect(auto, auto, auto, auto);
+}
+
+.cp-controls {
+	margin:0;
+	padding:26px;
+}
+
+.cp-controls li{
+	list-style-type:none;
+	display:block;
+
+	/*IE Fix*/
+	position:absolute;
+}
+
+.cp-controls li a{
+	position:relative;
+	display:block;
+	width:50px;
+	height:50px;
+/*	text-indent:-999px;*/
+font-size: 0em;
+	z-index:1;
+	cursor:pointer;
+
+}
+
+.cp-controls .cp-play {
+	background:url("controls.jpg") 0 0 no-repeat;
+}
+
+.cp-controls .cp-play:hover {
+	background:url("controls.jpg") -50px 0 no-repeat;
+}
+
+.cp-controls .cp-pause {
+	background:url("controls.jpg") 0 -50px no-repeat;
+}
+
+.cp-controls .cp-pause:hover {
+	background:url("controls.jpg") -50px -50px no-repeat;
+}
+
+.cp-jplayer {
+	width:0;
+	height:0;
+}
+
+
+#body {
+	
+	background-color: #ccc;
+	height: 1050px;
+}
+
+
+#centering {
+	position: relative;
+    width: 940px;
+    height: 900px;
+    max-width: 100%;
+    min-width: 768px;
+    margin: 0 auto;
+}
+#wrapper {
+	position: relative;
+ background: url("appl4.jpg") 0 0 no-repeat;
+ width: 940px;
+ height: 888px;
+/* max-width: 100%;*/
+ min-width: 768px;
+ box-shadow:0 0 1em 0.3em black;
+
+}
+
+	.kalendertag .back {
+/*		-webkit-transform: scaleX(-1)*/
+		-webkit-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+	}
+		.kalendertag .back h2 {
+			width: 287px; height: 42px; margin: 0 auto 20px auto; 
+		}
+		.kalendertag img {
+			float: right;
+		}
+
+			
+			.container {
+
+				width: 112px; height: 112px;
+				-webkit-perspective: 1000;
+				-moz-perspective: 1000;
+				-o-perspective: 1000;
+				-ms-perspective: 1000;
+				-perspective: 1000;
+				
+				
+				position:relative;
+			}
+
+			.card {
+				width: 112px; height: 112px;
+				/*border: 8px solid #000;	*/
+				-webkit-transform-style: preserve-3d;
+				-webkit-transition: 0.5s;
+				-moz-transform-style: preserve-3d;
+				-moz-transition: 0.5s;
+				-o-transform-style: preserve-3d;
+				-o-transition: 0.5s;
+				-ms-transform-style: preserve-3d;
+				-ms-transition: 0.5s;
+				
+				
+			}
+			
+			.container:hover .card {
+				-webkit-transform: rotateY(180deg);		
+				-moz-transform: rotateY(180deg);
+				-o-transform: rotateY(180deg);
+				-ms-transform: rotateY(180deg);
+				transform: rotateY(180deg);			
+			}
+
+			.face {
+			position: absolute;
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			-o-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			backface-visibility: hidden;
+			}
+			
+			.kalendertag {
+				float: left; 
+			}
+				.kalendertag .front {
+					width:112px;
+				}
