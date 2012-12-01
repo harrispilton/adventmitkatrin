@@ -1,1 +1,261 @@
-hallo katrin
+�<<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+
+  <title>Willkommen zum BLABLUB</title>
+  
+  
+		<link rel="stylesheet" href="circle.skin/circle.player.css">
+
+  		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.transform2d.js"></script>
+		<script type="text/javascript" src="js/jquery.grab.js"></script>
+		<script type="text/javascript" src="js/jquery.jplayer.js"></script>
+		<script type="text/javascript" src="js/mod.csstransforms.min.js"></script>
+		<script type="text/javascript" src="js/circle.player.js"></script>
+
+
+		<script type="text/javascript">
+$(document).ready(function(){
+
+			/*
+			 * Instance CirclePlayer inside jQuery doc ready
+			 *
+			 * CirclePlayer(jPlayerSelector, media, options)
+			 *   jPlayerSelector: String - The css selector of the jPlayer div.
+			 *   media: Object - The media object used in jPlayer("setMedia",media).
+			 *   options: Object - The jPlayer options.
+			 *
+			 * Multiple instances must set the cssSelectorAncestor in the jPlayer options. Defaults to "#cp_container_1" in CirclePlayer.
+			 */
+
+			var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1", /* Um zu ändern musst du jede einzelne instanz "#jquery_jplayer_1" und "#cp_container_1" mit der entsprechenden Zahl ergänzen */
+			{
+				m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+				oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+			}, {
+				cssSelectorAncestor: "#cp_container_1"
+			});
+
+			// This code creates a 2nd instance.
+
+			var myOtherOne = new CirclePlayer("#jquery_jplayer_2",
+			{
+				m4a:"http://www.jplayer.org/audio/m4a/Miaow-04-Lismore.m4a",
+				oga:"http://www.jplayer.org/audio/ogg/Miaow-04-Lismore.ogg"
+			}, {
+				cssSelectorAncestor: "#cp_container_2"
+			});
+			
+			// This code creates a 3nd instance.
+			var myOtherOne = new CirclePlayer("#jquery_jplayer_3",
+			{
+				m4a:"./audio/Bruni.mp3",
+			}, {
+				cssSelectorAncestor: "#cp_container_3"
+			});
+		});
+		</script>
+		
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+<style type="text/css">
+
+/* Überblendungseffekt Effekt = 5s heißt 5 sekunden */
+	.hidden {
+		opacity: 0;
+    	-webkit-transition: opacity 5s ease;
+    	-moz-transition: opacity 5s ease
+    	-o-transition: opacity 5s ease;
+    	-ms-transition: opacity 5s ease;
+    	transition: opacity 5s ease;
+	}
+		
+	.hidden.show {opacity: 1;}
+
+	/* Positionierung - Hier würde ich dir empfehlen im chrome developermode auf die Zahl rechtsklicken, element untersuchen und dann im html markup das div-objekt auswählen, wo .eins als klasse angegeben ist. dann hast du rechts das css und da werden dann auch die werte top: und left: angezeigt. dort kannst du einfach deine werte eintragen oder sogar, wenn eine box ausgewählt ist, mit den pfeiltasten verschieben. */
+	.eins {top: 30px; left:195px;}
+	.zwei {top: 269px; left: 611px;}
+	.drei {top: 400px; left: 100px;}
+		
+		
+
+	
+  	.datum{ 
+		line-height:112px;
+		font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+		color: #ffffff; /* Schriftfarbe - Hexcode */
+	 }
+	 
+	.schrift {
+		  font-size: 4em; /* Schriftgröße, hier kannst du auch einfach 16px als Wert eintragen. */
+		  margin: 0;
+		  text-align:center
+	  }
+	 
+	  /* Das 0.5 bedeutet naheliegenderweise 50%. Damit kannst du die Größe
+	  des Players steuern */
+	  .cp-container { 
+		  -webkit-transform: scale(0.5);
+		  -moz-transform: scale(0.5);
+		  -o-transform: scale(0.5);
+		  transform: scale(0.5);
+	  }
+
+	  #header {
+
+		  padding: 20px 0 10px 10px;
+	  }
+</style>
+
+</head>
+<body>
+	<div id="body">
+	<div id="centering">
+		<div id="header">
+			<h1 style="margin:0;">Hello</h1> <!-- Überschrift -->
+			<hr />
+		</div>
+   <div id="wrapper">  
+
+
+	   <!-- Player 1 -->
+	   <div class="container kalendertag hidden eins" id="x1" style="visibility:hidden"> <!-- In dieser Zeile kennzeichnen den Player 1: "eins" und "x1" -->
+		   <div class="card">
+		   		<div class="face front">
+	 	 			<div class="datum">
+	 	 				<p class="schrift">1</p>	<!-- Hier ist die Zahl für den Kalendertag -->
+	 	 			</div>			
+	 	 	  	</div>
+	 	 	  	<div class="face back">	 	 					
+	 	 			<div id="cp_container_1" class="cp-container"> <!-- Das cp_container_1 kennzeichnet den Player als ersten Player -->
+	 	 				<div class="cp-buffer-holder"> 
+	 	 					<div class="cp-buffer-1"></div>
+	 	 					<div class="cp-buffer-2"></div>
+						</div>
+	 	 				<div class="cp-progress-holder"> 
+	 	 					<div class="cp-progress-1"></div>
+	 	 					<div class="cp-progress-2"></div>
+	 	 				</div>
+	 	 				<div class="cp-circle-control"></div>
+	 	 				<ul class="cp-controls">
+	 	 					<li><a class="cp-play" tabindex="1">play</a></li>
+	 	 					<li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> 
+	 	 				</ul>
+	 	 			</div>						  
+	 	 		</div>					 
+	 	 	</div>				
+		</div>
+		
+ 	   <div class="container kalendertag hidden zwei" id="x2" style="visibility:hidden">
+ 		   <div class="card">
+ 	 	 	  	<div class="face front">
+ 	 	 			<div class="datum">
+ 	 	 				<p class="schrift">2</p>	
+ 	 	 			</div>			
+ 	 	 	  	</div>
+ 	 	 	  	<div class="face back">	 	 					
+ 	 	 			<div id="cp_container_2" class="cp-container">
+ 	 	 				<div class="cp-buffer-holder"> 
+ 	 	 					<div class="cp-buffer-1"></div>
+ 	 	 					<div class="cp-buffer-2"></div>
+ 						</div>
+ 	 	 				<div class="cp-progress-holder"> 
+ 	 	 					<div class="cp-progress-1"></div>
+ 	 	 					<div class="cp-progress-2"></div>
+ 	 	 				</div>
+ 	 	 				<div class="cp-circle-control"></div>
+ 	 	 					<ul class="cp-controls">
+ 	 	 						<li><a class="cp-play" tabindex="1">play</a></li>
+ 	 	 						<li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> 
+ 	 	 					</ul>
+ 	 	 				</div>  
+ 	 	 			 </div>
+ 	 	 	  	</div>
+ 			</div>
+
+  	   <div class="container kalendertag hidden drei" id="x3" style="visibility:hidden" >
+  		   <div class="card">
+  	 	 	  	<div class="face front">
+  	 	 			<div class="datum">
+  	 	 				<p class="schrift">3</p>	
+  	 	 			</div>			
+  	 	 	  	</div>
+  	 	 	  	<div class="face back">	 	 					
+  	 	 			<div id="cp_container_3" class="cp-container">
+  	 	 				<div class="cp-buffer-holder"> 
+  	 	 					<div class="cp-buffer-1"></div>
+  	 	 					<div class="cp-buffer-2"></div>
+  						</div>
+  	 	 				<div class="cp-progress-holder"> 
+  	 	 					<div class="cp-progress-1"></div>
+  	 	 					<div class="cp-progress-2"></div>
+  	 	 				</div>
+  	 	 				<div class="cp-circle-control"></div>
+  	 	 					<ul class="cp-controls">
+  	 	 						<li><a class="cp-play" tabindex="1">play</a></li>
+  	 	 						<li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> 
+  	 	 					</ul>
+  	 	 				</div>  
+  	 	 			 </div>
+  	 	 	  	</div>
+  			</div>
+  		</div>
+		
+		<!-- Damit die Player funktionieren, muss hier noch ein Dummy für jeden Player angelegt werden -->
+		
+		<div id="jquery_jplayer_1" class="cp-jplayer"></div>
+		<div id="jquery_jplayer_2" class="cp-jplayer"></div>
+		<div id="jquery_jplayer_3" class="cp-jplayer"></div>
+		<div id="jquery_jplayer_4" class="cp-jplayer"></div>
+		<div id="jquery_jplayer_5" class="cp-jplayer"></div>
+		<div id="jquery_jplayer_6" class="cp-jplayer"></div>
+		<div id="jquery_jplayer_7" class="cp-jplayer"></div>
+		<div id="jquery_jplayer_8" class="cp-jplayer"></div>
+		<div id="jquery_jplayer_9" class="cp-jplayer"></div>	 <!-- usw. -->
+		
+  </div>  
+</div>
+</div>
+
+
+
+         
+  
+	<script type="text/javascript">
+	
+
+	
+	var jetzt = new Date();
+	var Tag = jetzt.getDate();	
+	var i = 1
+	
+	function delayedLoop(){
+
+		var d = document.getElementById('x' + i);
+			
+		d.className = d.className + " " + "show"		
+		//document.getElementById('x' + i).innerHTML = "<h1>" + i + "</h1>";
+		document.getElementById('x' + i).style.visibility = 'visible';
+		// document.getElementById('x' + i).setAttribute("class", "hidden show");
+		if(++i == (Tag + 1) ) {
+			return;
+		}
+		
+		window.setTimeout(delayedLoop, 200);
+	}
+	
+	delayedLoop();	
+
+    </script> 
+  
+</body>
+</html>
