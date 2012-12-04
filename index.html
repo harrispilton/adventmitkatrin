@@ -8,7 +8,7 @@
   <meta charset="utf-8" />
 
 
-  <title>Willkommen zum BLABLUB</title>
+  <title>Adventskalender mit Laura, David und Max</title>
   
   
 		<link rel="stylesheet" href="circle.skin/circle.player.css">
@@ -37,8 +37,7 @@ $(document).ready(function(){
 
 			var myCirclePlayer = new CirclePlayer("#jquery_jplayer_1", /* Um zu ändern musst du jede einzelne instanz "#jquery_jplayer_1" und "#cp_container_1" mit der entsprechenden Zahl ergänzen */
 			{
-				m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-				oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+				oga:"./audio/1.ogg",
 			}, {
 				cssSelectorAncestor: "#cp_container_1"
 			});
@@ -47,8 +46,6 @@ $(document).ready(function(){
 
 			var myOtherOne = new CirclePlayer("#jquery_jplayer_2",
 			{
-				m4a:"http://www.jplayer.org/audio/m4a/Miaow-04-Lismore.m4a",
-				oga:"http://www.jplayer.org/audio/ogg/Miaow-04-Lismore.ogg"
 			}, {
 				cssSelectorAncestor: "#cp_container_2"
 			});
@@ -56,7 +53,7 @@ $(document).ready(function(){
 			// This code creates a 3nd instance.
 			var myOtherOne = new CirclePlayer("#jquery_jplayer_3",
 			{
-				m4a:"./audio/Bruni.mp3",
+
 			}, {
 				cssSelectorAncestor: "#cp_container_3"
 			});
@@ -85,6 +82,7 @@ $(document).ready(function(){
 	.eins {top: 30px; left:195px;}
 	.zwei {top: 269px; left: 611px;}
 	.drei {top: 400px; left: 100px;}
+	.vier {top: 30px; left:215px;}
 		
 		
 
@@ -114,16 +112,13 @@ $(document).ready(function(){
 
 		  padding: 20px 0 10px 10px;
 	  }
+	#body{
+	background-color: #444444;
+	}
 </style>
 
 </head>
 <body>
-	<div id="body">
-	<div id="centering">
-		<div id="header">
-			<h1 style="margin:0;">Hello</h1> <!-- Überschrift -->
-			<hr />
-		</div>
    <div id="wrapper">  
 
 
